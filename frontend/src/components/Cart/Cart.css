@@ -1,0 +1,23 @@
+.cart{
+    margin-top: 100px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.cart__table{
+    border: 2px solid black;
+}
+
+th{
+    margin-left: 20px !important;
+    border: 1px solid black;
+    height: 50px;
+    width: 400px;
+}
+
+td{
+    color: black !important;
+    border: 1xp solid black;
+    width: 400px;
+    height: 100px;
+}

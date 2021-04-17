@@ -1,0 +1,123 @@
+.header {
+  position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  background: #131921;
+  color: white !important;
+  z-index: 100;
+}
+
+.header__menu {
+  font-size: 40px !important;
+  cursor: pointer;
+  border: 0.2px solid rgb(134, 132, 132);
+  margin-left: 10px;
+}
+
+.header__menu:hover {
+  border: 1px solid white;
+}
+
+.header__logo {
+  object-fit: contain;
+  width: 170px;
+  height: 70px;
+  margin-right: 60px;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  width: 45%;
+}
+
+.header__searchInput {
+  flex: 1;
+  padding: 11px;
+  width: 100%;
+}
+
+.header__searchBtn {
+  padding: 5px;
+  width: 40px !important;
+  height: 39px !important;
+  color: black;
+  font-weight: 100 !important;
+  background-color: lightgray;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.header__navOpt {
+  width: 90px !important;
+  margin-right: 30px;
+  padding: 10px;
+}
+
+.header__navOpt1 {
+  margin-left: 20px;
+  margin-top: 20px;
+  border-radius: 4;
+  margin-right: 20px;
+  position: relative;
+  background-color: #131921;
+  /* padding: 10px 26px 10px 12px; */
+  width: 170px;
+  text-align: center;
+}
+
+.header__navOpt:hover {
+  border: 1px solid white;
+}
+
+.header__navText {
+  position: absolute;
+  color: lightgray;
+  margin-left: 8px;
+  /* margin-top: 2spx; */
+  font-family: sans-serif;
+  line-height: 0;
+  z-index: 2;
+  font-size: 14px;
+  text-align: center;
+}
+
+.header__navText2 {
+  color: lightgray;
+  margin-left: 10px;
+  margin-bottom: 5px !important;
+  font-family: sans-serif;
+  line-height: 0;
+  z-index: 2;
+  font-size: 14px;
+  text-align: center;
+}
+
+.header__navTextP {
+  font-weight: 700;
+  color: white;
+  font-family: sans-serif;
+  margin-bottom: 4px !important;
+}
+
+.header__cart {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.header__cart:hover {
+  border: 1px solid white;
+}
+
+a{
+  text-decoration: none;
+  color: initial;
+}

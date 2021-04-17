@@ -1,0 +1,152 @@
+.product {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  margin-top: 5%;
+}
+
+.product__card {
+  width: 300px;
+  height: 400px auto;
+  object-fit: contain;
+  margin-left: 20px;
+  margin-bottom: 5%;
+}
+
+.product__content {
+  font-family: "Times New Roman", Times, serif;
+  justify-content: center;
+  align-items: center;
+}
+
+.product__img {
+  width: 100%;
+  max-height: 300px;
+}
+
+a{
+  text-decoration: none;
+  color: initial;
+}
+
+.product__name {
+  color: inherit;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px;
+}
+
+.product__content > h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: brown;
+  padding: 5px;
+}
+
+.product__content > span {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.product__content > p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.details{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 100px !important;
+  text-align: center;
+}
+
+.details__img{
+  max-width: 40%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-left: -35px;
+}
+
+.image{
+  width: 450px;
+  height: 600px;
+}
+
+.details__content{
+  position: absolute;
+  width: 33%;
+  margin-left: 35%;
+  height: 100%;
+}
+
+.details__content > p{
+  text-align: left !important;
+  margin-bottom: 30px !important;
+  font-size: 18px;
+}
+
+.details__content > h2{
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.details__content > h4{
+  color: brown;
+  margin-top: 30px;
+  margin-bottom: 2px;
+}
+
+.details__card{
+  width: 25%;
+  margin-left: 33%;
+  height: 200px !important;
+  border: 1px solid black;
+  margin-top: 5%;
+}
+
+.details__btn{
+  background-color: rgb(251, 198, 50) !important;
+  border: 1px solid black !important;
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
+}
+
+.product__load{
+  margin-left: 45%;
+}
+
+.mens{
+  margin-top: 100px;
+}
+
+.mens > h2{
+  font-size: 30px;
+  margin-left: 30px;
+  padding-top: 30px;
+}
+
+.mens__filter{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.womens{
+  margin-top: 70px;
+}
+
+.womens > h2{
+  font-size: 30px;
+  margin-left: 30px;
+  padding-top: 30px;
+}
+
+.filter{
+  width: 400px;
+  margin-left: 0 auto;
+}

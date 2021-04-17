@@ -1,0 +1,63 @@
+.home {
+  position: absolute;
+  margin-top: 70px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.card__showcase {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+}
+
+.card {
+  /* position: absolute; */
+  border-radius: 0px;
+  margin-top: 70% !important;
+  width: 300px;
+  height: 350px auto;
+  object-fit: contain;
+  margin-left: 20px;
+}
+
+.card__contents {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__header {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: black !important;
+  margin-top: 20px !important;
+  text-align: center;
+}
+
+.card__content > span {
+  text-align: start;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.card__content > img {
+  object-fit: contain;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.card__btn {
+  margin-top: 60px !important;
+}
+
+.card__ad {
+  width: 320px;
+  height: 320px;
+  /* margin-right: 30px !important; */
+}
