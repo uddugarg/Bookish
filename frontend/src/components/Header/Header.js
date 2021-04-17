@@ -157,13 +157,10 @@ function Header(props) {
                     <span className='header__navText2'>Try</span><br />
                     <p className='header__navTextP'>Prime</p>
                 </div>
-                <div className='header__cart'>
-                    <Link to='/cart'>
-                        <ShoppingCartIcon fontSize='large' />
-                        <p className='header__navTextP'>0</p>
-                    </Link>
-                </div>
-
+                <Link to='/cart' className='header__cart'>
+                    <ShoppingCartIcon fontSize='large' />
+                    <p className='header__navTextP'>0</p>
+                </Link>
             </div >
         )
     }

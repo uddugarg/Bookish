@@ -111,6 +111,7 @@
   margin-right: 30px;
   padding: 10px;
   cursor: pointer;
+  color: inherit;
 }
 
 .header__cart:hover {
