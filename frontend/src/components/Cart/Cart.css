@@ -1,11 +1,25 @@
 .cart{
-    margin-top: 100px;
-    width: 100vw;
+    margin-top: 100px !important;
+    margin: 3rem auto;
+    max-width: 85%;
     height: 100vh;
 }
 
 .cart__table{
-    border: 2px solid black;
+    text-align: center;
+}
+
+.cart__total{
+    margin-top: 3rem;
+}
+
+.cart__empty{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: -100px;
 }
 
 th{
