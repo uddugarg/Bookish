@@ -149,17 +149,21 @@ function Header(props) {
                     }
 
                 </div>
-                <div className='header__navOpt'>
-                    <span className='header__navText2'>Return</span><br />
-                    <p className='header__navTextP'>& Order</p>
-                </div>
+                <Link to='/order/history'>
+                    <div className='header__navOpt'>
+                        <span className='header__navText2'>Return</span><br />
+                        <p className='header__navTextP'>& Order</p>
+                    </div>
+                </Link>
                 <div className='header__navOpt'>
                     <span className='header__navText2'>Try</span><br />
                     <p className='header__navTextP'>Prime</p>
                 </div>
                 <Link to='/cart' className='header__cart'>
                     <ShoppingCartIcon fontSize='large' />
-                    <p className='header__navTextP'>0</p>
+                    <p className='header__navTextP'>
+                        {user.userData && user.userData.cart && user.userData.cart.length}
+                    </p>
                 </Link>
             </div >
         )

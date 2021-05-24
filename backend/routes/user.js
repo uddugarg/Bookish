@@ -5,6 +5,7 @@ const { auth } = require('../middleware/auth');
 
 const { User } = require('../models/User');
 const { Product } = require('../models/Product');
+const { Payment } = require('../models/Payment');
 
 
 router.get('/auth', auth, (req, res) => {
@@ -162,9 +163,60 @@ router.get('/userCartInfo', auth, (req, res) => {
             Product.find({ '_id': { $in: array } })
                 .populate('writer')
                 .exec((err, cartDetail) => {
-                    if(err) res.status(400).send(err)
-                    return res.status(200).json({ success: true, cartDetail, cart})
+                    if (err) res.status(400).send(err)
+                    return res.status(200).json({ success: true, cartDetail, cart })
                 })
+        }
+    )
+})
+
+router.post('/orderSuccess', auth, (req, res) => {
+    let history = [];
+    let transactionData = {};
+
+    req.body.cartDetail.forEach((item) => {
+        history.push({
+            dateOfPurchase: Date.now(),
+            name: item.title,
+            id: item._id,
+            price: item.price,
+            quantity: item.quantity,
+            paymentId: req.body.paymentData.paymentID
+        })
+    })
+
+    transactionData.user = {
+        id: req.user._id,
+        name: req.user.name,
+        lastname: req.user.lastname,
+        email: req.user.email,
+    }
+    transactionData.data = req.body.paymentData
+    transactionData.product = history
+
+    User.findOneAndUpdate(
+        { _id: req.user._id },
+        { $push: { history: history }, $set: { cart: [] } },
+        { new: true },
+        (err, user) => {
+            if (err) return res.json({ success: false, err });
+
+            const payment = new Payment(transactionData)
+            payment.save((err, doc) => {
+                if (err) return res.json({ success: false, err })
+                return res.status(200).json({ success: true, doc })
+            })
+        }
+    )
+})
+
+router.get('/getOrderHistory', auth, (req, res) => {
+    User.findOne(
+        { _id: req.user._id },
+        (err, doc) => {
+            let history = doc.history;
+            if (err) return res.status(400).send(err);
+            return res.status(200).json({ success: true, history })
         }
     )
 })

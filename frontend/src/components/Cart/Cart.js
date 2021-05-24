@@ -3,11 +3,12 @@ import { Empty, Result } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartItems, removeCartItem } from '../../_actions/user_action';
+import { getCartItems, orderSuccessful, removeCartItem } from '../../_actions/user_action';
 import './Cart.css';
 import CartItems from './CartItems';
+import Paypal from './Payment/Paypal';
 
-function Cart() {
+function Cart(props) {
 
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
@@ -57,9 +58,9 @@ function Cart() {
                 axios.get('/api/user/userCartInfo')
                     .then(response => {
                         if (response.data.success) {
-                            if(response.data.cartDetail.length <= 0){
+                            if (response.data.cartDetail.length <= 0) {
                                 setShowTotal(false);
-                            }else{
+                            } else {
                                 calculateTotal(response.data.cartDetail)
                             }
                         } else {
@@ -68,6 +69,40 @@ function Cart() {
                     })
             })
     }
+
+    const transactionSuccess = (data) => {
+
+        let variables = {
+            cartDetail: user.cartDetail,
+            paymentData: data
+        }
+
+        axios.post('/api/user/orderSuccess', variables)
+            .then(response => {
+                if (response.data.success) {
+                    setShowSuccess(true);
+                    setShowTotal(false);
+                    dispatch(orderSuccessful({
+                        cart: response.data.cart,
+                        cartDetail: response.data.cartDetail
+                    }))
+                    window.location.reload();
+                } else {
+                    alert('Transaction Failed')
+                }
+            })
+    }
+
+    const transactionError = () => {
+        console.log('Paypal Transaction Error');
+    }
+
+    const transactionCancelled = () => {
+        console.log('Paypal Transaction Cancelled');
+    }
+
+    const totalUSD = parseInt(totalAmt / 70);
+    console.log(totalUSD);
 
     return (
         <div className='cart'>
@@ -91,8 +126,16 @@ function Cart() {
                         </div>
                 }
 
-
-                {/* <Button>Proceed To Pay</Button> */}
+                {showTotal &&
+                    <div style={{ marginTop: "20px" }}>
+                        <Paypal
+                            toPay={totalUSD}
+                            onSuccess={transactionSuccess}
+                            transactionError={transactionError}
+                            transactionCancelled={transactionCancelled}
+                        />
+                    </div>
+                }
 
             </div>
         </div>

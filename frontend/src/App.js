@@ -9,6 +9,7 @@ import './App.css';
 import Upload from './components/Uploads/Upload';
 import ProductDetails from './components/Products/ProductDetails';
 import Cart from './components/Cart/Cart';
+import OrderList from './components/Orders/OrderList';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='/upload' component={Auth(Upload, true)} />
           <Route path='/bookish/:prodId' component={Auth(ProductDetails, true)} />
           <Route path='/cart' component={Auth(Cart, true)} />
+          <Route path='/order/history' component={Auth(OrderList, true)} />
         </Switch>
       </div>
     </Suspense>

@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { AUTH_USER, LOGIN_USER, LOGOUT_USER, REGISTER_USER, ADD_TO_CART_USER, GET_CART_ITEMS_USER, REMOVE_CART_ITEM_USER } from './types';
+import { 
+    AUTH_USER, 
+    LOGIN_USER, 
+    LOGOUT_USER, 
+    REGISTER_USER, 
+    ADD_TO_CART_USER, 
+    GET_CART_ITEMS_USER, 
+    REMOVE_CART_ITEM_USER, 
+    ORDER_SUCCESSFUL } from './types';
 
 export function registerUser(submit) {
     const request = axios.post('/api/user/register', submit)
@@ -79,6 +87,13 @@ export function removeCartItem(_id){
     return {
         type: REMOVE_CART_ITEM_USER,
         payload: request
+    }
+}
+
+export function orderSuccessful(data){
+    return{
+        type: ORDER_SUCCESSFUL,
+        payload: data,
     }
 }
 
